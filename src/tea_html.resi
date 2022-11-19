@@ -529,7 +529,7 @@ let embed: (
   list<Vdom.t<'msg>>,
 ) => Vdom.t<'msg>
 
-let object: (
+let object': (
   ~key: string=?,
   ~unique: string=?,
   Vdom.properties<'msg>,
@@ -719,7 +719,7 @@ module Attributes: {
 
   let styles: list<(string, string)> => Vdom.property<'msg>
 
-  let class: string => Vdom.property<'msg>
+  let class': string => Vdom.property<'msg>
 
   let classList: list<(string, bool)> => Vdom.property<'msg>
 
@@ -763,7 +763,7 @@ module Attributes: {
 
   let maxlength: int => Vdom.property<'msg>
 
-  let method: string => Vdom.property<'msg>
+  let method': string => Vdom.property<'msg>
 
   let multiple: bool => Vdom.property<'msg>
 

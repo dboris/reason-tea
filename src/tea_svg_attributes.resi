@@ -40,7 +40,7 @@ let calcMode: string => Vdom.property<'msg>
 
 let capHeight: string => Vdom.property<'msg>
 
-let class: string => Vdom.property<'msg>
+let class': string => Vdom.property<'msg>
 
 let clipPathUnits: string => Vdom.property<'msg>
 
@@ -166,7 +166,7 @@ let max: string => Vdom.property<'msg>
 
 let media: string => Vdom.property<'msg>
 
-let method: string => Vdom.property<'msg>
+let method': string => Vdom.property<'msg>
 
 let min: string => Vdom.property<'msg>
 

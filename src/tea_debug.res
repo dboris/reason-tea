@@ -264,7 +264,7 @@ let debug = (
         return JSON.stringify(formatValue(v), null, 2);
       }
     `)
-    aside(list{A.class("details")}, list{model |> format |> text})
+    aside(list{A.class'("details")}, list{model |> format |> text})
   }
 
   let viewHistory = (model, selectedIndex) => {
@@ -272,7 +272,7 @@ let debug = (
     module A = Tea_html.Attributes
     module E = Tea_html.Events
     let count = List.length(model.history)
-    \"@@"(ul(list{A.class("history")}), List.mapi((i, (msg, cmodel)) => {
+    \"@@"(ul(list{A.class'("history")}), List.mapi((i, (msg, cmodel)) => {
         let selected = i == selectedIndex
         li(
           list{
@@ -297,8 +297,8 @@ let debug = (
                 },
               },
             ),
-            span(list{A.class("message")}, list{text(msg)}),
-            span(list{A.class("index")}, list{(count - i)->Belt.Int.toString->text}),
+            span(list{A.class'("message")}, list{text(msg)}),
+            span(list{A.class'("index")}, list{(count - i)->Belt.Int.toString->text}),
           },
         )
       }, model.history))
@@ -327,7 +327,7 @@ let debug = (
               list{
                 div(
                   list{
-                    A.class("toggle"),
+                    A.class'("toggle"),
                     E.onClick(TogglePaused),
                     paused ? A.title("click to resume") : A.title("click to pause"),
                   },

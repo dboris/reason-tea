@@ -1,12 +1,9 @@
-# Rescript-TEA
+# Reason-TEA
 
-[![NPM](https://nodei.co/npm/rescript-tea.png?compact=true)](https://nodei.co/npm/rescript-tea/)
-
-[![Build Status](https://circleci.com/gh/darklang/rescript-tea.svg?style=svg)](https://circleci.com/darklang/rescript-tea)
 
 ## Description
 
-This is a library that enables The Elm Architecture for Rescript.
+This is a library that enables The Elm Architecture for OCaml, Reason, and Rescript.
 
 [The Elm Architecture](https://guide.elm-lang.org/architecture/) is an MVU pattern
 for organizing frontend applications and components. Another example a

@@ -1,3 +1,7 @@
+# Dev
+
+- Revert: Remove `'` from function and type names for names that were keywords in Bucklescript but are valid in Rescript
+
 # 0.16.0
 
 - New fork at https://github.com/darklang/rescript-tea

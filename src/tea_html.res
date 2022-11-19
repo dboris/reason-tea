@@ -215,7 +215,7 @@ let track = (~key="", ~unique="", props, nodes) => fullnode("", "track", key, un
 
 let embed = (~key="", ~unique="", props, nodes) => fullnode("", "embed", key, unique, props, nodes)
 
-let object = (~key="", ~unique="", props, nodes) =>
+let object' = (~key="", ~unique="", props, nodes) =>
   fullnode("", "object", key, unique, props, nodes)
 
 let param = (~key="", ~unique="", props, nodes) => fullnode("", "param", key, unique, props, nodes)
@@ -301,14 +301,14 @@ module Attributes = {
 
   @@ocaml.text(" {1 Super common attributes} ")
 
-  let class = name => prop("className", name)
+  let class' = name => prop("className", name)
 
   let classList = classes =>
     classes
     |> List.filter(((_fst, snd)) => snd)
     |> List.map(((fst, _snd)) => fst)
     |> String.concat(" ")
-    |> class
+    |> class'
 
   let id = str => prop("id", str)
 
@@ -387,7 +387,7 @@ module Attributes = {
 
   let maxlength = n => attribute("", "maxlength", string_of_int(n))
 
-  let method = m => prop("method", m)
+  let method' = m => prop("method", m)
 
   let multiple = b =>
     if b {

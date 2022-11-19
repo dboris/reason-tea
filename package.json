@@ -1,8 +1,8 @@
 
 {
-  "name": "rescript-tea",
+  "name": "reason-tea",
   "version": "0.16.0",
-  "description": "The Elm Architecture (TEA) for Rescript",
+  "description": "The Elm Architecture (TEA) for OCaml, Reason, and Rescript",
   "main": "index.js",
   "scripts": {
     "clean": "rescript clean",
@@ -16,11 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/darklang/rescript-tea.git"
+    "url": "git+https://github.com/dboris/reason-tea.git"
   },
   "keywords": [
     "TEA",
     "Rescript",
+    "Reason",
+    "OCaml",
     "MVU"
   ],
   "author": "OvermindDL1",

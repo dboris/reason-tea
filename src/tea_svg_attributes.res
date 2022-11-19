@@ -44,7 +44,7 @@ let calcMode = v => attribute("", "calcMode", v)
 
 let capHeight = v => attribute("", "cap-height", v)
 
-let class = v => attribute("", "class", v)
+let class' = v => attribute("", "class", v)
 
 let clipPathUnits = v => attribute("", "clipPathUnits", v)
 
@@ -170,7 +170,7 @@ let max = v => attribute("", "max", v)
 
 let media = v => attribute("", "media", v)
 
-let method = v => attribute("", "method", v)
+let method' = v => attribute("", "method", v)
 
 let min = v => attribute("", "min", v)
 

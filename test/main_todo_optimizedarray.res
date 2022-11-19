@@ -181,11 +181,11 @@ let viewEntry = (todo, ()) => {
     list{Html.Attributes.classList(list{("completed", todo.completed), ("editing", todo.editing)})},
     list{
       div(
-        list{Html.Attributes.class("view")},
+        list{Html.Attributes.class'("view")},
         list{
           input'(
             list{
-              Html.Attributes.class("toggle"),
+              Html.Attributes.class'("toggle"),
               Html.Attributes.type'("checkbox"),
               Html.Attributes.checked(todo.completed),
               onClick(Check(todo.id, !todo.completed)),
@@ -193,12 +193,12 @@ let viewEntry = (todo, ()) => {
             list{},
           ),
           label(list{onDoubleClick(EditingEntry(todo.id, true))}, list{text(todo.description)}),
-          button(list{Html.Attributes.class("destroy"), onClick(Delete(todo.id))}, list{}),
+          button(list{Html.Attributes.class'("destroy"), onClick(Delete(todo.id))}, list{}),
         },
       ),
       input'(
         list{
-          Html.Attributes.class("edit"),
+          Html.Attributes.class'("edit"),
           Html.Attributes.value(todo.description),
           Html.Attributes.name("title"),
           Html.Attributes.id("todo-" ++ Belt.Int.toString(todo.id)),
@@ -226,11 +226,11 @@ let viewEntries = (visibility, entries) => {
     "visible"
   }
   section(
-    list{Html.Attributes.class("main"), Html.Attributes.style("visibility", cssVisibility)},
+    list{Html.Attributes.class'("main"), Html.Attributes.style("visibility", cssVisibility)},
     list{
       input'(
         list{
-          Html.Attributes.class("toggle-all"),
+          Html.Attributes.class'("toggle-all"),
           Html.Attributes.type'("checkbox"),
           Html.Attributes.name("toggle"),
           Html.Attributes.checked(allCompleted),
@@ -239,7 +239,7 @@ let viewEntries = (visibility, entries) => {
         list{},
       ),
       label(list{Html.Attributes.for'("toggle-all")}, list{text("Mark all as complete")}),
-      ul(list{Html.Attributes.class("todo-list")}, Array.map(todo =>
+      ul(list{Html.Attributes.class'("todo-list")}, Array.map(todo =>
           if isVisible(todo) {
             lazy1(
               Belt.Int.toString(todo.id) ++
@@ -258,12 +258,12 @@ let viewEntries = (visibility, entries) => {
 let viewInput = (task, ()) =>
   header(
     ~key=task,
-    list{Html.Attributes.class("header")},
+    list{Html.Attributes.class'("header")},
     list{
       h1(list{}, list{text("todos")}),
       input'(
         list{
-          Html.Attributes.class("new-todo"),
+          Html.Attributes.class'("new-todo"),
           Html.Attributes.placeholder("What needs to be done?"),
           Html.Attributes.autofocus(true),
           Html.Attributes.value(task),
@@ -285,7 +285,7 @@ let viewControlsCount = entriesLeft => {
   let left = Belt.Int.toString(entriesLeft)
   span(
     ~key=left,
-    list{Html.Attributes.class("todo-count")},
+    list{Html.Attributes.class'("todo-count")},
     list{strong(list{}, list{text(left)}), text(item_ ++ " left")},
   )
 }
@@ -306,7 +306,7 @@ let visibilitySwap = (uri, visibility, actualVisibility) =>
 
 let viewControlsFilters = visibility =>
   ul(
-    list{Html.Attributes.class("filters")},
+    list{Html.Attributes.class'("filters")},
     list{
       visibilitySwap("#/", "All", visibility),
       text(" "),
@@ -319,7 +319,7 @@ let viewControlsFilters = visibility =>
 let viewControlsClear = entriesCompleted =>
   button(
     list{
-      Html.Attributes.class("clear-completed"),
+      Html.Attributes.class'("clear-completed"),
       Html.Attributes.hidden(entriesCompleted === 0),
       onClick(DeleteComplete),
     },
@@ -336,7 +336,7 @@ let viewControls = (visibility, entries) => {
   , 0, entries)
   let entriesLeft = Array.length(entries) - entriesCompleted
   footer(
-    list{Html.Attributes.class("footer"), Html.Attributes.hidden(Array.length(entries) == 0)},
+    list{Html.Attributes.class'("footer"), Html.Attributes.hidden(Array.length(entries) == 0)},
     list{
       viewControlsCount(entriesLeft),
       viewControlsFilters(visibility),
@@ -348,7 +348,7 @@ let viewControls = (visibility, entries) => {
 let infoFooter = () =>
   footer(
     ~key="1",
-    list{Html.Attributes.class("info")},
+    list{Html.Attributes.class'("info")},
     list{
       p(list{}, list{text("Double-click to edit a todo")}),
       p(
@@ -375,10 +375,10 @@ let infoFooter = () =>
 
 let view = model =>
   div(
-    list{Html.Attributes.class("todomvc-wrapper"), Html.Attributes.style("visibility", "hidden")},
+    list{Html.Attributes.class'("todomvc-wrapper"), Html.Attributes.style("visibility", "hidden")},
     list{
       section(
-        list{Html.Attributes.class("todoapp")},
+        list{Html.Attributes.class'("todoapp")},
         /* [ viewInput model.field () */
         /* Optimization: Set the input as a lazy field */
         list{
