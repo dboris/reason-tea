@@ -34,7 +34,7 @@ let baseProfile = v => attribute("", "baseProfile", v)
 
 let bbox = v => attribute("", "bbox", v)
 
-let begin = v => attribute("", "begin", v)
+let begin' = v => attribute("", "begin", v)
 
 let bias = v => attribute("", "bias", v)
 
@@ -76,7 +76,7 @@ let edgeMode = v => attribute("", "edgeMode", v)
 
 let elevation = v => attribute("", "elevation", v)
 
-let end = v => attribute("", "end", v)
+let end' = v => attribute("", "end", v)
 
 let exponent = v => attribute("", "exponent", v)
 
@@ -302,7 +302,7 @@ let textLength = v => attribute("", "textLength", v)
 
 let title = v => attribute("", "title", v)
 
-let to = v => attribute("", "to", v)
+let to' = v => attribute("", "to", v)
 
 let transform = v => attribute("", "transform", v)
 

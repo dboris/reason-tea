@@ -462,7 +462,7 @@ let rec patchVNodesOnElemsReplaceNode = (
       let newChildNode = Webapi.Dom.Element.asNode(newChild)
       let childChildren = Webapi.Dom.Node.childNodes(newChildNode)
       let () = patchVNodesOnElems(callbacks, newChildNode, childChildren, 0, list{}, newChildren)
-      let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new=newChildNode, ~before=oldChild)
+      let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new'=newChildNode, ~before=oldChild)
       let _removedChild = Webapi.Dom.Node.removeChild(elem, ~child=oldChild)
     | _ => failwith("Node replacement should never be passed anything but a node itself")
     }
@@ -594,7 +594,7 @@ and patchVNodesOnElems = (
         let _removedChild = Webapi.Dom.Node.removeChild(elem, ~child=secondChild)
         let _attachedChild = Webapi.Dom.Node.insertBefore(
           elem,
-          ~new=secondChild,
+          ~new'=secondChild,
           ~before=firstChild,
         )
         patchVNodesOnElems(callbacks, elem, elems, idx + 2, olderRest, newerRest)
@@ -609,7 +609,7 @@ and patchVNodesOnElems = (
         let newVdom = newGen()
         let () = newCache := newVdom
         let newChild = patchVNodesOnElemsCreateElement(callbacks, newVdom)
-        let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new=newChild, ~before=oldChild)
+        let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new'=newChild, ~before=oldChild)
         patchVNodesOnElems(callbacks, elem, elems, idx + 1, oldVNodes, newRest)
       | _ =>
         let oldVdom = oldCache.contents
@@ -676,7 +676,7 @@ and patchVNodesOnElems = (
         let _removedChild = Webapi.Dom.Node.removeChild(elem, ~child=secondChild)
         let _attachedChild = Webapi.Dom.Node.insertBefore(
           elem,
-          ~new=secondChild,
+          ~new'=secondChild,
           ~before=firstChild,
         )
         patchVNodesOnElems(callbacks, elem, elems, idx + 2, olderRest, newerRest)
@@ -713,7 +713,7 @@ and patchVNodesOnElems = (
         ) if oldNamespace == newerNamespace && (oldTagName == newerTagName && oldKey == newerKey) =>
         let oldChild = nodeAt(idx, elems)
         let newChild = patchVNodesOnElemsCreateElement(callbacks, newNode)
-        let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new=newChild, ~before=oldChild)
+        let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new'=newChild, ~before=oldChild)
         patchVNodesOnElems(callbacks, elem, elems, idx + 1, oldVNodes, newRest)
       | _ =>
         let () = patchVNodesOnElemsMutateNode(callbacks, elem, elems, idx, oldNode, newNode)
@@ -723,7 +723,7 @@ and patchVNodesOnElems = (
   | (list{_oldVnode, ...oldRest}, list{newNode, ...newRest}) =>
     let oldChild = nodeAt(idx, elems)
     let newChild = patchVNodesOnElemsCreateElement(callbacks, newNode)
-    let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new=newChild, ~before=oldChild)
+    let _attachedChild = Webapi.Dom.Node.insertBefore(elem, ~new'=newChild, ~before=oldChild)
     let _removedChild = Webapi.Dom.Node.removeChild(elem, ~child=oldChild)
     patchVNodesOnElems(callbacks, elem, elems, idx + 1, oldRest, newRest)
   }
