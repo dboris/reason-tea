@@ -10,7 +10,7 @@
       "type": "dev"
     }
   ],
-  "bs-dependencies": ["rescript-webapi"],
+  "bs-dependencies": ["reason-webapi"],
   "warnings": {
     "error" : true
   }
