@@ -69,7 +69,7 @@ let update = (model, x) =>
         entries: if model.field == "" {
           model.entries
         } else {
-          \"@"(model.entries, list{newEntry(model.field, model.uid)})
+          Belt.List.concat(model.entries, list{newEntry(model.field, model.uid)})
         },
       },
       Cmd.none,
