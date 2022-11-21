@@ -1,4 +1,4 @@
-# Dev
+# 0.16.1
 
 - Revert: Remove `'` from function and type names for names that were keywords in Bucklescript but are valid in Rescript
 
