@@ -1,7 +1,7 @@
 
 {
   "name": "reason-tea",
-  "version": "0.16.1",
+  "version": "0.16.2",
   "description": "The Elm Architecture (TEA) for OCaml, Reason, and Rescript",
   "main": "index.js",
   "scripts": {
